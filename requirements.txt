@@ -1,0 +1,4 @@
+# pandas
+torchsnooper
+wandb
+git+https://github.com/allenai/allennlp

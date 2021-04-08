@@ -1,0 +1,26 @@
+# controller:
+#     type: local
+
+entity: ${WANDB_ENTITY}
+project: ${WANDB_PROJECT}
+
+method: grid
+metric:
+  name: val_loss
+  goal: minimize
+
+command:
+    - ${env}
+    - python
+    - elmo.py
+    - ${args}
+
+parameters:
+  data_number:
+    values: [0]
+  data_path:
+    values: ["data/pheme5_lc"]
+  LM_name:
+    values: [
+            "elmo",
+            ]

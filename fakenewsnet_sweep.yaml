@@ -1,0 +1,26 @@
+# controller:
+#     type: local
+
+entity: ${WANDB_ENTITY}
+project: ${WANDB_PROJECT}
+
+method: grid
+metric:
+  name: val_loss
+  goal: minimize
+
+command:
+    - ${env}
+    - python
+    - fakenewsnet.py
+    - ${args}
+
+parameters:
+  data_number:
+    values: [0,1,2,3,4]
+  data_path:
+    values: ["data/gossipcop"]
+  LM_name:
+    values: [
+            "google/bert_uncased_L-2_H-128_A-2",
+            ]

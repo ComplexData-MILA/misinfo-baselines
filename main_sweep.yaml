@@ -1,0 +1,30 @@
+# controller:
+#     type: local
+
+entity: ${WANDB_ENTITY}
+project: ${WANDB_PROJECT}
+
+method: grid
+metric:
+  name: val_loss
+  goal: minimize
+
+command:
+    - ${env}
+    - python
+    - main_models.py
+    - ${args}
+
+parameters:
+  data_number:
+    values: [0]
+  data_path:
+    values: ["data/pheme5_lc"]
+  LM_name:
+    values: [
+            "bert-base-uncased",
+            "digitalepidemiologylab/covid-twitter-bert-v2",
+            "johngiorgi/declutr-base",
+            "google/bert_uncased_L-2_H-128_A-2",
+            "roberta-large"
+            ]
